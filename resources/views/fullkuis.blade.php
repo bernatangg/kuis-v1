@@ -6,9 +6,29 @@
         <div class="content">
             <!-- Remove This Before You Start -->
             <h1>CBM QUIZ</h1>
+            <!-- <div class="col-12">
+                        @if (session('status'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('status') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
+            </div> -->
+            @if (\Session::has('success'))
+            <div class="alert alert-success">
+                <ul>
+                    <li>{!! \Session::get('success') !!}</li>
+                </ul>
+            </div>
+            @endif
+
+
             <hr>
             @foreach($data as $datas)
-            <form action="{{ route('pertanyaan.update', $datas->id) }}" method="post">
+            
+            <form action="{{ route('kuis.check') }}" method="post">
                 {{ csrf_field() }}
                 {{ method_field('POST') }}
                 <div class="form-group">
@@ -18,7 +38,7 @@
 
                 <div class="form-group">
                     <input type="text" class="form-control" id="answer" name="answer">
-                    <a href="" class=" btn btn-sm btn-primary">JAWAB</a>
+                    <button type="submit" class=" btn btn-sm btn-primary">JAWAB</a>
                 </div>
 
                 <div class="form-group">

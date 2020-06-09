@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::resource('pertanyaan','PertanyaanController');
 Route::get('kuis', 'KuisController@showpertanyaan')->name('kuis.showpertanyaan');
 Route::get('run_quiz/{id}', 'KuisController@runquiz')->name('kuis.runquiz');
+Route::post('answer', 'KuisController@quizanswer')->name('kuis.check');
 
 
 Route::get('/', function () {

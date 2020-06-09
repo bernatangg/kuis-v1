@@ -30,4 +30,10 @@ class KuisController extends Controller {
                 ->get();
         return view('fullkuis');
     }
+
+    public function quizanswer(Request $request) {
+        $data = $request->get('answer');
+        //if else untuk cek data  
+        return redirect()->back()->with('success', $data);   
+    }
 }
