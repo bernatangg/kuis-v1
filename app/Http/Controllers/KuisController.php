@@ -24,16 +24,36 @@ class KuisController extends Controller {
         return view('fullkuis',compact('data'));
     }
 
-    public function search($answer) {
-        $data = DB::table('pertanyaan')
-                ->where('jwb_1', 'like', '%' . answer)
-                ->get();
-        return view('fullkuis');
+    public function search(Request $request) {
+        $answer = $request->get('answer');
+        $id = $request->get('id');
+        // $data = DB::table('pertanyaan')
+        //         ->where('jwb_1', $answer)
+        //         ->where('id', $id)
+        //         ->get();
+
+        $data = DB::select("SELECT CASE WHEN EXISTS (SELECT jwb_1 FROM pertanyaan WHERE id = 2 AND jwb_1 = 'sas') THEN 1 ELSE 0 end AS jawab");
+
+        foreach($data as $item) {
+            $jawaban = $item->jawab;
+        }
+
+        // dd($jawaban);
+        if ($jawaban == 1) {
+            return redirect()->back()->with('success',"sukses");
+        } else {
+            return redirect()->back()->with('failed',"gagal");
+        }
+
+        
+
+        
     }
 
     public function quizanswer(Request $request) {
         $data = $request->get('answer');
         //if else untuk cek data  
-        return redirect()->back()->with('success', $data);   
+        // return redirect()->back()->with('success', $data);   
+        return redirect()->back()->with('success',$data);
     }
 }
