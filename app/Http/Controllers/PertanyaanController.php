@@ -44,11 +44,6 @@ class PertanyaanController extends Controller {
         $data->jwb_3 = $request->jwb_3;
         $data->jwb_4 = $request->jwb_4;
         $data->jwb_5 = $request->jwb_5;
-        $data->jwb_6 = $request->jwb_6;
-        $data->jwb_7 = $request->jwb_7;
-        $data->jwb_8 = $request->jwb_8;
-        $data->jwb_9 = $request->jwb_9;
-        $data->jwb_10 = $request->jwb_10;
         $data->save();
         return redirect()->route('pertanyaan.index')->with('alert-success','Berhasil Menambahkan Data!');
     }
@@ -93,11 +88,6 @@ class PertanyaanController extends Controller {
         $data->jwb_3 = $request->jwb_3;
         $data->jwb_4 = $request->jwb_4;
         $data->jwb_5 = $request->jwb_5;
-        $data->jwb_6 = $request->jwb_6;
-        $data->jwb_7 = $request->jwb_7;
-        $data->jwb_8 = $request->jwb_8;
-        $data->jwb_9 = $request->jwb_9;
-        $data->jwb_10 = $request->jwb_10;
         $data->save();
         return redirect()->route('pertanyaan.index')->with('alert-success','Data berhasil diubah!');
     }

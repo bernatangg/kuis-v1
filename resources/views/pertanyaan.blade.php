@@ -22,11 +22,6 @@
                     <th>Jawaban 3</th>
                     <th>Jawaban 4</th>
                     <th>Jawaban 5</th>
-                    <th>Jawaban 6</th>
-                    <th>Jawaban 7</th>
-                    <th>Jawaban 8</th>
-                    <th>Jawaban 9</th>
-                    <th>Jawaban 10</th>
                     <th>Aksi</th>
                 </tr>
                 </thead>
@@ -41,16 +36,11 @@
                         <td>{{ $datas->jwb_3 }}</td>
                         <td>{{ $datas->jwb_4 }}</td>
                         <td>{{ $datas->jwb_5 }}</td>
-                        <td>{{ $datas->jwb_6 }}</td>
-                        <td>{{ $datas->jwb_7 }}</td>
-                        <td>{{ $datas->jwb_8 }}</td>
-                        <td>{{ $datas->jwb_9 }}</td>
-                        <td>{{ $datas->jwb_10 }}</td>
                         <td>
-                            <form action="{{ route('pertanyaan.destroy', $datas->id) }}" method="post">
+                            <form action="{{ route('pertanyaan.destroy', $datas->id_pertanyaan) }}" method="post">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <a href="{{ route('pertanyaan.edit',$datas->id) }}" class=" btn btn-sm btn-primary">Edit</a>
+                                <a href="{{ route('pertanyaan.edit',$datas->id_pertanyaan) }}" class=" btn btn-sm btn-primary">Edit</a>
                                 <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">Delete</button>
                             </form>
                         </td>

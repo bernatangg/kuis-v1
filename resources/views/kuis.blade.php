@@ -13,7 +13,7 @@
             @endif
             <hr>
             @foreach($data AS $datas)
-                <a href="{{ route('kuis.runquiz',$datas->id) }}" class=" btn btn-sm btn-primary">Pertanyaan : {{ $datas->id }}</a>
+                <a href="{{ route('kuis.runquiz',$datas->id_pertanyaan) }}" class=" btn btn-sm btn-primary">Pertanyaan : {{ $datas->id_pertanyaan }}</a>
             @endforeach
             
         </div>
