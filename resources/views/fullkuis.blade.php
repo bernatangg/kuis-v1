@@ -69,18 +69,53 @@
                     <input type="text" class="form-control" id="answer" name="answer">
                     <input type="hidden" class="form-control" id="answer" name="id_test" value="{{ $datas->id_pertanyaan }}">
                     <!-- <input name="invisible" type="hidden" class="form-control" id="id_pertanyaan" name = "id_pertanyaan" value="{{ $datas->id_pertanyaan }}"> -->
-                    <button type="submit" class=" btn btn-sm btn-primary">JAWAB</a>
+                    <button type="submit" class=" btn btn-sm btn-primary" id="formButton">JAWAB</a>
                 </div>
 
-                @if (\Session::has('success'))
                 <div class="form-group">
-                    <input type="text" class="form-control" value="{{ $datas->jwb_1 }}" disabled>
+                    <input type="text" class="form-control" disabled>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" disabled>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" disabled>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" disabled>
+                </div>
+
+                
+
+                @if (\Session::has('success'))
+                <script type="text/javascript">
+                    $("#formButton").click(function(){
+                        $("#jawaban_1").show();
+                        $("#sample_1").hide();
+                    });
+                </script>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="jawaban_1" value="{{ $datas->jwb_1 }}" disabled>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" id = "sample_1" disabled>
                 </div>
                 @endif
 
+                
+
                 @if (\Session::has('success2'))
+                <script type="text/javascript">
+                    $("#formButton").click(function(){
+                        $("#jawaban_2").toggle();
+                    });
+                </script>
                 <div class="form-group">
-                <input type="text" class="form-control" value="{{ $datas->jwb_2 }}" disabled>
+                <input type="text" class="form-control" id="jawaban_2" value="{{ $datas->jwb_2 }}" disabled>
                 </div>
                 @endif
 
